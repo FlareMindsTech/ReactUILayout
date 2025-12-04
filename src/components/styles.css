@@ -1,0 +1,250 @@
+/* style.css */
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.animation-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1488CC, #2B32B2);
+}
+
+/* Floating Box Styles */
+.floating-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: floatBox 20s infinite linear;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Different shapes and sizes of boxes */
+.floating-box.type-1 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, rgba(100, 65, 165, 0.3), rgba(42, 8, 69, 0.2)); /* #6441A5 to #2a0845 */
+}
+
+.floating-box.type-2 {
+    width: 60px;
+    height: 100px;
+    background: linear-gradient(45deg, rgba(51, 174, 172, 0.3), rgba(112, 152, 1, 0.2)); /* #33AEAC to #709801 */
+    border-radius: 20px 5px 20px 5px;
+}
+
+.floating-box.type-3 {
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(231, 255, 255, 0.3), rgba(249, 252, 255, 0.2)); /* #E7FFFF to #F9FCFF */
+    border-radius: 30px 30px 5px 5px;
+}
+
+.floating-box.type-4 {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, rgba(0, 238, 255, 0.3), rgba(8, 161, 236, 0.2)); /* #00EEFF to #08A1EC */
+    border-radius: 50% 20% 50% 20%;
+}
+
+.floating-box.type-5 {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, rgba(20, 136, 204, 0.3), rgba(43, 50, 178, 0.2)); /* #1488CC to #2B32B2 */
+    border-radius: 10px;
+    transform: rotate(45deg);
+}
+
+.floating-box.type-6 {
+    width: 50px;
+    height: 150px;
+    background: linear-gradient(45deg, rgba(100, 65, 165, 0.2), rgba(51, 174, 172, 0.3)); /* #6441A5 to #33AEAC */
+    border-radius: 25px;
+}
+
+/* Box positions and animations */
+.floating-box:nth-child(1) {
+    left: 10%;
+    top: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.floating-box:nth-child(2) {
+    left: 25%;
+    top: 20%;
+    animation-delay: 3s;
+    animation-duration: 30s;
+}
+
+.floating-box:nth-child(3) {
+    left: 40%;
+    top: 5%;
+    animation-delay: 6s;
+    animation-duration: 22s;
+}
+
+.floating-box:nth-child(4) {
+    left: 60%;
+    top: 15%;
+    animation-delay: 9s;
+    animation-duration: 28s;
+}
+
+.floating-box:nth-child(5) {
+    left: 80%;
+    top: 10%;
+    animation-delay: 12s;
+    animation-duration: 35s;
+}
+
+.floating-box:nth-child(6) {
+    left: 15%;
+    top: 60%;
+    animation-delay: 2s;
+    animation-duration: 26s;
+}
+
+.floating-box:nth-child(7) {
+    left: 30%;
+    top: 70%;
+    animation-delay: 7s;
+    animation-duration: 32s;
+}
+
+.floating-box:nth-child(8) {
+    left: 50%;
+    top: 65%;
+    animation-delay: 4s;
+    animation-duration: 24s;
+}
+
+.floating-box:nth-child(9) {
+    left: 70%;
+    top: 75%;
+    animation-delay: 10s;
+    animation-duration: 29s;
+}
+
+.floating-box:nth-child(10) {
+    left: 85%;
+    top: 60%;
+    animation-delay: 5s;
+    animation-duration: 27s;
+}
+
+.floating-box:nth-child(11) {
+    left: 5%;
+    top: 40%;
+    animation-delay: 8s;
+    animation-duration: 31s;
+}
+
+.floating-box:nth-child(12) {
+    left: 45%;
+    top: 35%;
+    animation-delay: 1s;
+    animation-duration: 33s;
+}
+
+.floating-box:nth-child(13) {
+    left: 75%;
+    top: 45%;
+    animation-delay: 6s;
+    animation-duration: 26s;
+}
+
+.floating-box:nth-child(14) {
+    left: 20%;
+    top: 85%;
+    animation-delay: 11s;
+    animation-duration: 34s;
+}
+
+.floating-box:nth-child(15) {
+    left: 65%;
+    top: 90%;
+    animation-delay: 9s;
+    animation-duration: 28s;
+}
+
+/* Floating animation */
+@keyframes floatBox {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-100px) translateX(50px) rotate(90deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-200px) translateX(0) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-100px) translateX(-50px) rotate(270deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* Additional wave effect for some boxes */
+.floating-box.wave-effect {
+    animation: floatBoxWave 15s infinite ease-in-out;
+}
+
+@keyframes floatBoxWave {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        border-radius: 10px;
+    }
+    25% {
+        transform: translateY(-120px) rotate(45deg);
+        border-radius: 20px;
+    }
+    50% {
+        transform: translateY(-240px) rotate(90deg);
+        border-radius: 30px;
+    }
+    75% {
+        transform: translateY(-120px) rotate(135deg);
+        border-radius: 20px;
+    }
+}
+
+/* Glowing effect for some boxes */
+.floating-box.glow {
+    box-shadow: 
+        0 0 20px rgba(51, 174, 172, 0.4),
+        0 0 40px rgba(100, 65, 165, 0.3),
+        0 0 60px rgba(20, 136, 204, 0.2);
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 
+            0 0 20px rgba(51, 174, 172, 0.4),
+            0 0 40px rgba(100, 65, 165, 0.3),
+            0 0 60px rgba(20, 136, 204, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 30px rgba(51, 174, 172, 0.6),
+            0 0 60px rgba(100, 65, 165, 0.5),
+            0 0 90px rgba(20, 136, 204, 0.4);
+    }
+}
