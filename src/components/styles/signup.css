@@ -41,10 +41,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 110vh;
+  max-height: 100vh; 
   width: 100%;
   position: relative;
   overflow: hidden;
+  overflow-y: auto; 
+}
+
+.signup-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.signup-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.signup-container::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.signup-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.671);
 }
 
 .signup-card {

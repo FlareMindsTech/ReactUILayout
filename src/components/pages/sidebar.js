@@ -32,6 +32,15 @@ const Sidebar = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Update body class based on sidebar state
+  useEffect(() => {
+    if (open) {
+      document.body.classList.remove('sidebar-closed');
+    } else {
+      document.body.classList.add('sidebar-closed');
+    }
+  }, [open]);
+
   // Touch swipe handling
   useEffect(() => {
     if (!isMobile) return;
