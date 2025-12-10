@@ -16,7 +16,7 @@ const Sidebar = () => {
     { title: "Dashboard", icon: "bi-house-door" },
     { title: "Accounts", icon: "bi-person", gap: true },
     { title: "Files", icon: "bi-folder", gap: true },
-    { title: "Setting", icon: "bi-gear" },
+    { title: "Setting", icon: "bi-gear",gap:true },
     { title: "Logout", icon: "bi-box-arrow-right", gap: true },
   ];
 
@@ -200,7 +200,7 @@ const Sidebar = () => {
           </h1>
         </div>
         
-        <div className="sidebar-user">
+        {/* <div className="sidebar-user">
           <div className="user-avatar-sidebar">
             <i className="bi bi-person-circle"></i>
           </div>
@@ -208,7 +208,7 @@ const Sidebar = () => {
             <h4>John Doe</h4>
             <p>Administrator</p>
           </div>
-        </div>
+        </div> */}
         
         <ul className="sidebar-menu">
           {Menus.map((Menu, index) => (
@@ -232,14 +232,12 @@ const Sidebar = () => {
           ))}
         </ul>
         
-        <div className={`sidebar-footer ${!open && "hidden"}`}>
-          <div className="footer-content">
-            <i className={`bi ${darkMode ? "bi-moon" : "bi-sun"}`}></i>
-           <span style={{ color: darkMode ? "white" : "black" }}>
-  {darkMode ? "Dark Mode" : "Light Mode"}
-</span>
-       <div className="theme-switch" onClick={toggleTheme}>
-              <div className="switch-handle" style={{ transform: darkMode ? "translateX(0)" : "translateX(24px)" }}></div>
+        <div className="sidebar-footer">
+          <div className="footer-content-sidebar">
+            <div className="theme-switch" onClick={toggleTheme}>
+              <i className="bi bi-sun theme-icon sun-icon"></i>
+              <i className="bi bi-moon theme-icon moon-icon"></i>
+              <div className="switch-handle" style={{ transform: darkMode ? "translateX(0)" : "translateX(34px)" }}></div>
             </div>
           </div>
         </div>

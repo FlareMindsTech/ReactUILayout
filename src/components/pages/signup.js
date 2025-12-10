@@ -18,6 +18,12 @@ const PasswordIcon = () => (
 const PhoneIcon = () => (
     <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3.5A1.5 1.5 0 013.5 2h2A1.5 1.5 0 017 3.5V5a1 1 0 01-1 1H4v2a12 12 0 0012 12h2a1 1 0 011-1v-2a1 1 0 01-1-1h-1.5A1.5 1.5 0 0116 16.5v-2A1.5 1.5 0 0117.5 13h2A1.5 1.5 0 0121 14.5v2A3.5 3.5 0 0117.5 20h-2A14 14 0 012 5.5v-2z"/></svg>
 );
+const EyeIcon = () => (
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>
+);
+const EyeSlashIcon = () => (
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019 10C18.27 7.11 15 3 10 3c-1.28 0-2.49.37-3.58 1L3.707 2.293zM7.53 6.116A3 3 0 0113.46 12.05l-5.93-5.93zM1 10c.73-2.89 4-7 9-7l.11.006-2.42 2.42A5 5 0 003.52 9.59L1 10zm6.43 3.872A3 3 0 0113.46 7.95l5.93 5.93z"/></svg>
+);
 
 // Inline InputWithIcon component
 const InputWithIcon = ({ icon: Icon, ...props }) => (
@@ -26,6 +32,30 @@ const InputWithIcon = ({ icon: Icon, ...props }) => (
         <input {...props} />
     </div>
 );
+
+// Password input with toggle visibility
+const PasswordInput = ({ value, onChange, placeholder }) => {
+    const [showPassword, setShowPassword] = useState(false);
+    return (
+        <div className="input-icon-wrapper">
+            <span className="input-icon"><PasswordIcon /></span>
+            <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+            />
+            <span 
+                className="password-toggle-icon" 
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ cursor: 'pointer', position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)' }}
+            >
+                {showPassword ? <EyeSlashIcon /> : <EyeIcon />}
+            </span>
+        </div>
+    );
+};
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -132,13 +162,10 @@ const Signup = () => {
                     </div>
                     <div className="input-group">
                         <label>Password</label>
-                        <InputWithIcon
-                            type="password"
-                            name="password"
+                        <PasswordInput
                             value={formData.password}
                             onChange={handleChange}
                             placeholder="Enter your password"
-                            icon={PasswordIcon}
                         />
                     </div>
                     <button

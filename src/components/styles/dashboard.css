@@ -81,9 +81,15 @@ body {
   overflow-x: hidden;
   height: 100vh;
   background: linear-gradient(135deg, var(--light-bg) 0%, var(--light-blue) 100%);
+  transition: margin-left 0.3s ease;
 }
 
-/* Hide scrollbar completely, show only when hovering on scrollbar area */
+/* When sidebar is collapsed */
+body.sidebar-closed .main-content {
+  margin-left: var(--sidebar-width-closed);
+}
+
+/* Hide scrollbar completely */
 .main-content::-webkit-scrollbar {
   width: 8px;
 }

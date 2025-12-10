@@ -77,42 +77,52 @@
 }
 
 .input-group {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  color: #6441A5;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: black;
+  font-weight: 500;
 }
 
 .input-group input {
   width: 100%;
-  padding: 14px 14px 14px 45px;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  background: #F9FCFF;
-  color: #333;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: black;
   font-size: 1rem;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(100, 65, 165, 0.1);
+  box-sizing: border-box;
+  text-align: left;
 }
 
-.input-group input:hover {
-  background: #fff;
-  border-color: #00E5FF;
+.input-group input {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  padding-left: 2.5em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+  width: 100%;
 }
 
 .input-group input:focus {
-  background: white;
-  transform: translateY(-2px);
-  border-color: #6441A5;
-  box-shadow: 0 8px 25px rgba(100, 65, 165, 0.2);
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.input-group input::placeholder {
+  color: #666;
+  opacity: 0.8;
 }
 .login-btn {
   width: 100%;
