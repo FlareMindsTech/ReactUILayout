@@ -76,12 +76,12 @@
   background-clip: text;
 }
 
-.input-group {
+.input-group-login {
   margin-bottom: 20px;
   text-align: left;
 }
 
-.input-group label {
+.input-group-login label {
   display: block;
   margin-bottom: 8px;
   font-size: 0.9rem;
@@ -89,7 +89,7 @@
   font-weight: 500;
 }
 
-.input-group input {
+.input-group-login input {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
@@ -103,7 +103,7 @@
   text-align: left;
 }
 
-.input-group input {
+.input-group-login input {
   border: none;
   outline: none;
   border-radius: 15px;
@@ -115,12 +115,12 @@
   width: 100%;
 }
 
-.input-group input:focus {
+.input-group-login input:focus {
   background-color: white;
   transform: scale(1.05);
 }
 
-.input-group input::placeholder {
+.input-group-login input::placeholder {
   color: #666;
   opacity: 0.8;
 }
@@ -219,7 +219,7 @@
     font-size: 1.8rem;
   }
   
-  .input-group input {
+  .input-group-login input {
     padding: 12px 12px 12px 40px;
   }
   

@@ -1,14 +1,16 @@
-import { useState, useEffect, useRef } from "react"; // useEffect, useRef சேர்க்கவும்
+import { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/sidebar.css";
 import { useNavigate } from "react-router-dom";
+// import logo from "../assest/logo.jpeg";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("Dashboard");
   const [darkMode, setDarkMode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
   const sidebarRef = useRef(null);
   const navigate = useNavigate();
 
@@ -58,7 +60,7 @@ const Sidebar = () => {
     };
 
     const handleSwipe = () => {
-      const swipeThreshold = 50; // minimum swipe distance in pixels
+      const swipeThreshold = 50; 
       const swipeDistance = touchEndX - touchStartX;
 
       // Left swipe (close sidebar)
@@ -112,58 +114,19 @@ const Sidebar = () => {
   };
 
   const handleLogout = () => {
-    toast.info(
-      <div>
-        <p>Are you sure you want to logout?</p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-          <button 
-            className="btn-confirm" 
-            onClick={() => {
-              toast.dismiss();
-              confirmLogout();
-            }}
-            style={{
-              background: '#1488CC',
-              color: 'white',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
-          >
-            Yes, Logout
-          </button>
-          <button 
-            className="btn-cancel"
-            onClick={() => toast.dismiss()}
-            style={{
-              background: '#6c757d',
-              color: 'white',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </div>,
-      {
-        position: "top-center",
-        autoClose: false,
-        closeOnClick: false,
-        draggable: false,
-        closeButton: false,
-      }
-    );
+    setShowLogoutModal(true);
   };
 
   const confirmLogout = () => {
+    setShowLogoutModal(false);
     toast.success("Logout successful! Redirecting to login...");
     setTimeout(() => {
       navigate("/login");
     }, 1500);
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
   };
 
   const toggleTheme = () => {
@@ -193,6 +156,7 @@ const Sidebar = () => {
         <div className="sidebar-header">
           <div className="logo-icon">
             <i className="bi bi-palette"></i>
+             {/* <img src={logo} alt="Logo" /> */}
           </div>
           <h1 className={`sidebar-title ${!open && "hidden"}`}>
             <span className="logo-text">FlareMinds</span>
@@ -242,6 +206,33 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <div className="logout-modal-overlay">
+          <div className="logout-modal-box">
+            <div className="logout-modal-header">
+              <i className="bi bi-box-arrow-right logout-modal-icon"></i>
+              <h2>Confirm Logout</h2>
+            </div>
+            <p className="logout-modal-message">Are you sure you want to logout?</p>
+            <div className="logout-modal-buttons">
+              <button 
+                className="logout-btn logout-btn-confirm"
+                onClick={confirmLogout}
+              >
+                <i className="bi bi-check-circle"></i> Logout
+              </button>
+              <button 
+                className="logout-btn logout-btn-cancel"
+                onClick={cancelLogout}
+              >
+                <i className="bi bi-x-circle"></i> Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

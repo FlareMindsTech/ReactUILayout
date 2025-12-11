@@ -112,7 +112,7 @@ const Login = () => {
             >
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="input-group">
+                    <div className="input-group-login">
                         <label>Username</label>
                         <InputWithIcon
                             type="text"
@@ -123,7 +123,7 @@ const Login = () => {
                             icon={UserIcon}
                         />
                     </div>
-                    <div className="input-group">
+                    <div className="input-group-login">
                         <label>Email</label>
                         <InputWithIcon
                             type="email"
@@ -134,7 +134,7 @@ const Login = () => {
                             icon={EmailIcon}
                         />
                     </div>
-                    <div className="input-group">
+                    <div className="input-group-login">
                         <label>Password</label>
                         <PasswordInput
                             value={formData.password}
