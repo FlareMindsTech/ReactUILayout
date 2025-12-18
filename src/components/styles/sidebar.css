@@ -244,6 +244,88 @@ body.light-mode {
   margin-left: 0;
 }
 
+/* Header Theme Toggle */
+.header-theme-switch {
+  width: 60px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 0 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  flex-shrink: 0;
+  border-top: 3px solid rgba(0, 255, 238, 0.8);
+  border-right: 3px solid rgba(0, 255, 238, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar.light .header-theme-switch {
+  background: rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #1488CC;
+  border-right: 3px solid #1488CC;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  /* border-left: 2px solid rgba(0, 0, 0, 0.1); */
+  border-left: 0px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-theme-switch:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.sidebar.light .header-theme-switch:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.header-sun-icon,
+.header-moon-icon {
+  font-size: 14px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.sidebar.light .header-sun-icon,
+.sidebar.light .header-moon-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header-sun-icon {
+  color: #FFD700;
+}
+
+.header-moon-icon {
+  color: #E0E0E0;
+}
+
+.sidebar.light .header-sun-icon {
+  color: #FFA500;
+}
+
+.sidebar.light .header-moon-icon {
+  color: #666;
+}
+
+.header-switch-handle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
 /* Sidebar User */
 /* .sidebar-user {
   padding: 25px;
@@ -560,99 +642,6 @@ sidebar-toggle full show aakala atha fix pannikutu
   border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-.footer-content-sidebar{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  transition: justify-content 0.3s ease;
-}
-
-.sidebar.closed .footer-content-sidebar {
-  justify-content: flex-start;
-  /* padding-left: 10px; */
-   width: fit-content;
-}
-
-.sidebar.light .footer-content-sidebar {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.footer-content-sidebar i {
-  font-size: 18px;
-}
-
-.theme-switch {
-  width: 70px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 18px;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8px;
-}
-
-.sidebar.light .theme-switch {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.theme-switch:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.sidebar.light .theme-switch:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.theme-icon {
-  font-size: 16px;
-  z-index: 1;
-  color: rgba(255, 255, 255, 0.6);
-  transition: color 0.3s ease;
-}
-
-.sidebar.light .theme-icon {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.sun-icon {
-  color: #FFD700;
-}
-
-.moon-icon {
-  color: #E0E0E0;
-}
-
-.sidebar.light .sun-icon {
-  color: #FFA500;
-}
-
-.sidebar.light .moon-icon {
-  color: #666;
-}
-
-.switch-handle {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 28px;
-  height: 28px;
-  background: white;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar.light .switch-handle {
-  background: white;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar.open {
@@ -669,8 +658,8 @@ sidebar-toggle full show aakala atha fix pannikutu
   }
   
   .sidebar-toggle {
-    right: 15px;
-    top: 15px;
+    right: 11px;
+    top: 25px;
     width: 40px;
     height: 40px;
   }
@@ -770,8 +759,6 @@ sidebar-toggle full show aakala atha fix pannikutu
 
 /* For very small screens */
 @media (max-width: 480px) {
-  
-@media (max-width: 480px) {
   :root {
     --sidebar-width-open: 100%;
   }
@@ -779,6 +766,30 @@ sidebar-toggle full show aakala atha fix pannikutu
   .sidebar.open {
     width: 100%;
     max-width: 300px;
+  }
+
+  .sidebar-header {
+    padding: 20px;
+  }
+
+  .header-theme-switch {
+    width: 55px;
+    height: 26px;
+    padding: 0 3px;
+    border-top: 2px solid rgba(0, 255, 238, 0.8);
+    border-right: 2px solid rgba(0, 255, 238, 0.8);
+  }
+
+  .header-sun-icon,
+  .header-moon-icon {
+    font-size: 12px;
+  }
+
+  .header-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 1px;
+    left: 1px;
   }
   
   .sidebar-user {
@@ -794,7 +805,6 @@ sidebar-toggle full show aakala atha fix pannikutu
   .menu-link {
     padding: 12px 15px;
   }
-}
 }
 
 /* Logout Confirmation Modal */

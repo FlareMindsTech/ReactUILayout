@@ -162,6 +162,11 @@ const Sidebar = () => {
             <span className="logo-text">FlareMinds</span>
             <span className="logo-subtitle">tec</span>
           </h1>
+          <div className="header-theme-switch" onClick={toggleTheme}>
+            <i className="bi bi-sun header-sun-icon"></i>
+            <i className="bi bi-moon header-moon-icon"></i>
+            <div className="header-switch-handle" style={{ transform: darkMode ? "translateX(0)" : "translateX(34px)" }}></div>
+          </div>
         </div>
         
         {/* <div className="sidebar-user">
@@ -197,13 +202,7 @@ const Sidebar = () => {
         </ul>
         
         <div className="sidebar-footer">
-          <div className="footer-content-sidebar">
-            <div className="theme-switch" onClick={toggleTheme}>
-              <i className="bi bi-sun theme-icon sun-icon"></i>
-              <i className="bi bi-moon theme-icon moon-icon"></i>
-              <div className="switch-handle" style={{ transform: darkMode ? "translateX(0)" : "translateX(34px)" }}></div>
-            </div>
-          </div>
+          {/* Footer content can be added here */}
         </div>
       </div>
 
